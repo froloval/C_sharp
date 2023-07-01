@@ -5,7 +5,7 @@ Console.WriteLine("Введите целое число");
 int num = int.Parse(Console.ReadLine());
 int numLength = num;
 int index = 1;
-int result = 0;
+double result = 0;
 while (numLength / 10 != 0)
 {
     numLength = numLength / 10;
@@ -13,12 +13,13 @@ while (numLength / 10 != 0)
     index++;
 }
 Console.WriteLine($" В числе {index} цифр");
-while (0 < index)
+while (index > 0)
 {
-    result = result + Math.Pow((num % 10), index);
+    result = result + Math.Pow(10, index - 1) * (num % 10);
     Console.WriteLine(result);
     num = num / 10;
-    index--;
+    index = index - 1;
 }
-Console.WriteLine(result);
+Console.WriteLine($"обратный порядок: {result}");
+
 
