@@ -9,12 +9,12 @@ int Prompt(string message)
     int result = Convert.ToInt32(value);
     return result;
 }
-arr AddArray(int[] mas)
+int[] AddArray(int[] mas)
 {
 
 
 }
 
-
+int n = Prompt("Введите число ");
 int[] mas = new int[n];
 Console.WriteLine("Hello, World!");
