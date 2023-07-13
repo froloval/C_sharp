@@ -1,5 +1,5 @@
-﻿// Напишите программу, которая будет создавать копию 
-// bзаданного массива с помощью поэлементного копирования.
+﻿// Напишите программу которая веревернет 
+// одномерный массив
 
 int Prompt(string message)
 {
@@ -17,15 +17,6 @@ int[] GetRandomIntArray(int size)
     }
     return array;
 }
-int[] GetResultIntArray(int[] array)
-{
-    int[] ResultArray = new int[array.Length];
-    for (int i = 0; i < array.Length; i++)
-    {
-        ResultArray[i] = array[i];
-    }
-    return ResultArray;
-}
 
 void PrintIntArray(int[] array)
 {
@@ -39,5 +30,10 @@ void PrintIntArray(int[] array)
 int size = Prompt("Введите размер массива");
 int[] array = GetRandomIntArray(size);
 PrintIntArray(array);
-int[] ResultArray = GetResultIntArray(array);
-PrintIntArray(ResultArray);
+for (int i = 0; i < array.Length / 2; i++)
+{
+    int temp = array[i];
+    array[i] = array[array.Length - 1 - i];
+    array[array.Length - 1 - i] = temp;
+}
+PrintIntArray(array);
