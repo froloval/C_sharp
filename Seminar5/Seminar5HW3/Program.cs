@@ -1,4 +1,6 @@
-﻿int Prompt(string message)
+﻿// Напишите программу, которая находит разность максимального
+// и минимального элементов массива
+int Prompt(string message)
 {
     Console.WriteLine(message);
     string value = Console.ReadLine();
@@ -37,7 +39,7 @@ void GetNums(double[] array)
             max = array[i];
         }
     }
-    Console.WriteLine($"Минимальное число {min} максимальное число {max}");
+    Console.WriteLine($"Разность равна {max - min}  ");
 }
 //----------------------------
 int size = Prompt("Введите размер массива");
