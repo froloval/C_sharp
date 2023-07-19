@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿// Задайте двумерный массив. Напишите программу, которая поменяет местами первую и последнюю строку массива
 
 int Prompt(string message)
 {
@@ -30,8 +30,20 @@ int[,] GetRandomIntArray(int countRow, int countColum)
     }
     return array;
 }
-//---------------------------
+int[,] FirstLastRowRevers(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(1); i++)
+    {
+        int tempEl = array[0, i];
+        array[0, i] = array[array.GetLength(0) - 1, i];
+        array[array.GetLength(0) - 1, i] = tempEl;
+    }
+    return array;
+}
+//------------------------------------------
 int countRow = Prompt("Введите количество строк ");
-int countColum = Prompt("Введите количество строк ");
+int countColum = Prompt("Введите количество столбцов ");
 int[,] array = GetRandomIntArray(countRow, countColum);
 PrintIntArray(array);
+Console.WriteLine();
+PrintIntArray(FirstLastRowRevers(array));

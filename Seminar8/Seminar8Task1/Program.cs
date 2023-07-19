@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿// Найти столбец с наименьшей суммой элементов.
 
 int Prompt(string message)
 {
@@ -30,8 +30,37 @@ int[,] GetRandomIntArray(int countRow, int countColum)
     }
     return array;
 }
+double[] GetMeanColumn(int[,] array)
+{
+    double[] ResultArray = new double[array.GetLength(1)];
+    for (int i = 0; i < array.GetLength(1); i++)
+    {
+        double sumColumn = 0;
+        for (int j = 0; j < array.GetLength(0); j++)
+        {
+            sumColumn = sumColumn + array[j, i];
+        }
+        ResultArray[i] = sumColumn;
+    }
+    return ResultArray;
+}
 //---------------------------
 int countRow = Prompt("Введите количество строк ");
-int countColum = Prompt("Введите количество строк ");
+int countColum = Prompt("Введите количество столбцов ");
 int[,] array = GetRandomIntArray(countRow, countColum);
 PrintIntArray(array);
+
+Console.WriteLine();
+double[] str = GetMeanColumn(array);
+double min = str[0];
+int MinIndex = 0;
+for (int i = 0; i < str.Length; i++)
+{
+    if (min > str[i])
+    {
+        min = str[i];
+        MinIndex = i;
+    }
+}
+Console.WriteLine($"Наименьшая сумма в столбце {MinIndex + 1} = {str[MinIndex]}");
+
