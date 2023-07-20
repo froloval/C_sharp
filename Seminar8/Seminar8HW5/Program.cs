@@ -32,21 +32,13 @@ int[,] GetSpiralArray(int countColum, int countRow)
     {
         CheckIndent = countColum;
     }
-    if (CheckIndent % 2 != 0) //определяем количество проходов
-    {
-        CheckIndent = CheckIndent / 2;
-    }
-    else
-    {
-        CheckIndent = CheckIndent / 2;
-    }
     int index = 0;
-    //while (indent < CheckIndent - 1)
-    //{
-    array = GetRoundSpiral(array, indent, index);
-    indent++;
-    index++;
-    //}
+    while (indent < CheckIndent / 2)
+    {
+        array = GetRoundSpiral(array, indent, index);
+        index = index + (countColum - indent * 2) * 2 + (countRow - indent * 2) * 2 - 4;
+        indent++;
+    }
     return array;
 
 }
@@ -58,16 +50,17 @@ int[,] GetRoundSpiral(int[,] array, int indent, int index)
     }
     for (int i = indent + 1; i < array.GetLength(0) - indent; i++, index++) //левая вертикаль
     {
-        array[i, array.GetLength(0) - 1 - indent] = index;
+        array[i, array.GetLength(1) - 1 - indent] = index;
     }
-    for (int i = array.GetLength(1) - 1 - indent; i > indent; i--, index++) // нижняя горизонталь
+    for (int i = array.GetLength(1) - 2 - indent; i > indent; i--, index++) // нижняя горизонталь
     {
         array[array.GetLength(0) - 1 - indent, i] = index;
     }
-    for (int i = array.GetLength(1) - 1 - indent; i > indent + 1; i--, index++) // правая вертикаль
+    for (int i = array.GetLength(0) - 1 - indent; i > indent; i--, index++) // правая вертикаль
     {
         array[i, indent] = index;
     }
+    //PrintIntArray(array);
     return array;
 }
 
