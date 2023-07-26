@@ -54,11 +54,11 @@ void PrintIntArray(int[,,] array)
         {
             for (int z = 0; z < array.GetLength(2); z++)
             {
-                Console.Write($" El {i} {j} {z} = {array[i, j, z]}");
+                Console.WriteLine($" El {i} {j} {z} = {array[i, j, z]}");
             }
-            Console.WriteLine();
+            // Console.WriteLine();
         }
-        Console.WriteLine();
+        //Console.WriteLine();
     }
 
 }
