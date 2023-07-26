@@ -12,31 +12,6 @@ string PromptString(string message)
     string value = Console.ReadLine();
     return value;
 }
-
-/*char[] GetCharArray(char Length)
-{
-    char[] array = new char(Legth);
-    //for (int i = 0; i < array.Length; i++)
-    //{
-    //     bool CorrectNum = false;
-    //   while (CorrectNum = false)
-    // {
-    //    char temp = Prompt("Введите один из символов: ( , ) , { , } , [ , ]");
-    //
-    //  if (temp == '(' || temp == '{' || temp == '[' || temp == ')' || temp == '}' || temp == ']')
-    //{
-    //  array[i] = temp;
-    //CorrectNum = true;
-    //}
-    //else
-    //{
-    //    Console.WriteLine("Введите другой символ");
-    //}
-    //}
-    //}
-    return array;
-}
-*/
 bool CheckString(int[,] array)
 {
     for (int i = 0; i < array.GetLength(1); i++)
@@ -135,17 +110,4 @@ else
 {
     Console.WriteLine("Неопустима");
 }
-/*//if (length % 2 == 0)
-{
-    char[] CharArray = GetCharArray(length);
-    int[,] IntArray = ExchangeCharToInt(CharArray);
-    PrintInt2Array(IntArray);
-
-    Console.WriteLine("Hello, World!");
-}
-else
-{
-    Console.WriteLine("Строка недопустима!");
-}
-*/
 Console.WriteLine("Hello, World!");

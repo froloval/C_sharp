@@ -20,7 +20,6 @@ int[,] GetRandomIntArray(int countRow, int countColum)
     }
     return array;
 }
-
 void PrintIntArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -35,17 +34,15 @@ void PrintIntArray(int[,] array)
 }
 int[,] GetMultiplMatrix(int[,] array1, int[,] array2)
 {
+    int[,] ResultMatrix = new int[array1.GetLength(0), array2.GetLength(1)];
+    for (int i = 0; i < ResultMatrix.GetLength(0); i++)
     {
-        int[,] ResultMatrix = new int[array1.GetLength(0), array2.GetLength(1)];
-        for (int i = 0; i < ResultMatrix.GetLength(0); i++)
+        for (int j = 0; j < ResultMatrix.GetLength(1); j++)
         {
-            for (int j = 0; j < ResultMatrix.GetLength(1); j++)
-            {
-                ResultMatrix[i, j] = MultiplicationElMatrix(array1, array2, i, j);
-            }
+            ResultMatrix[i, j] = MultiplicationElMatrix(array1, array2, i, j);
         }
-        return ResultMatrix;
     }
+    return ResultMatrix;
 }
 int MultiplicationElMatrix(int[,] array1, int[,] array2, int ii, int jj)
 {
@@ -53,9 +50,9 @@ int MultiplicationElMatrix(int[,] array1, int[,] array2, int ii, int jj)
     for (int i = 0; i < array1.GetLength(1); i++)
     {
         mult = mult + (array1[ii, i] * array2[i, jj]);
-        Console.Write($" {mult} ");
+        //Console.Write($" {mult} ");
     }
-    Console.WriteLine();
+    //Console.WriteLine();
     return mult;
 }
 //---------------------------------------
@@ -75,8 +72,6 @@ else
 {
     int[,] ResultArray = GetMultiplMatrix(array1, array2);
     PrintIntArray(ResultArray);
-
-
 }
 
-Console.WriteLine("Hello, World!");
+

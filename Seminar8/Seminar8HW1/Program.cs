@@ -34,6 +34,15 @@ void PrintIntArray(int[,] array)
     }
     Console.WriteLine();
 }
+int[,] SortArray(int[,] array)
+{
+    int[,] resultArray = new int[array.GetLength(0), array.GetLength(1)];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        resultArray = FindPlaceElInString(array, i);
+    }
+    return resultArray;
+}
 int[,] FindPlaceElInString(int[,] array, int i)
 {
     for (int k = 0; k < array.GetLength(1); k++)
@@ -50,15 +59,7 @@ int[,] FindPlaceElInString(int[,] array, int i)
     }
     return array;
 }
-int[,] SortArray(int[,] array)
-{
-    int[,] resultArray = new int[array.GetLength(0), array.GetLength(1)];
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        resultArray = FindPlaceElInString(array, i);
-    }
-    return resultArray;
-}
+
 //------------------------------------
 int countRow = Prompt("Введите количество строк ");
 int countColum = Prompt("Введите количество столбцов ");
